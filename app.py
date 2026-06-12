@@ -21,7 +21,7 @@ def load_models():
 
 model, collection = load_models()
 
-api_key = os.getenv("GROQ_API_KEY")
+api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 groq_client = Groq(api_key=api_key)
 
 conn = sqlite3.connect("conversation.db", check_same_thread=False)
