@@ -62,7 +62,7 @@ if prompt := st.chat_input("Ask anything about your research papers..."):
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             response = groq_client.chat.completions.create(
-                model="llama3-8b-8192",
+                model="llama-3.1-8b-instant",
                 messages=[{"role": "user", "content": full_prompt}]
             )
             answer = response.choices[0].message.content
