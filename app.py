@@ -53,9 +53,9 @@ if prompt := st.chat_input("Ask anything about your research papers..."):
     save_message("user", prompt)
 
     chunks = search_chunks(prompt, k=3)
-    context = " ".join(chunks)
+    context = " ".join([c[:500] for c in chunks])
     history = get_history()
-    history_text = " ".join([f"{r}: {m}" for r, m in history[-6:]])
+    history_text = " ".join([f"{r}: {m[:200]}" for r, m in history[-4:]])
 
     full_prompt = "You are a helpful assistant. Answer using the context below. If the answer is not in the context, say you dont know. CONTEXT: " + context + " CONVERSATION HISTORY: " + history_text + " QUESTION: " + prompt + " ANSWER:"
 
