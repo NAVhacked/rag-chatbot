@@ -1,0 +1,6 @@
+pymupdf
+chromadb
+sentence-transformers
+groq
+streamlit
+python-dotenv
